@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home2"
+        android:title="Home"
+        android:icon  = "@drawable/ic_home"/>
+    <item
+        android:id="@+id/add_exercise"
+        android:title="Add"
+        android:icon = "@drawable/ic_add"/>
+    <item
+        android:id="@+id/copy"
+        android:title="Copy"
+        android:icon="@drawable/ic_copy"/>
+    <item
+        android:id="@+id/search_day"
+        android:title="Search"
+        android:icon="@drawable/ic_search"/>
+</menu>

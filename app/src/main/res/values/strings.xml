@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WorkoutTracker</string>
+
+    <string-array name="category_items">
+        <item>Abs</item>
+        <item>Back</item>
+        <item>Bicep</item>
+        <item>Chest</item>
+        <item>Leg</item>
+        <item>Shoulder</item>
+        <item>Triceps</item>
+        <item>Other</item>
+    </string-array>
+</resources>
