@@ -13,8 +13,4 @@
         android:id="@+id/copy"
         android:title="Copy"
         android:icon="@drawable/ic_copy"/>
-    <item
-        android:id="@+id/search_day"
-        android:title="Search"
-        android:icon="@drawable/ic_search"/>
 </menu>

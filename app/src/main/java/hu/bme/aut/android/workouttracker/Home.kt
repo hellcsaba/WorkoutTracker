@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.workouttracker.adapter.FinishedExerciseAdapter
 import hu.bme.aut.android.workouttracker.data.FinishedExercise
+import hu.bme.aut.android.workouttracker.data.FinishedExerciseDao
 import hu.bme.aut.android.workouttracker.data.FinishedExercisesDatabase
 import hu.bme.aut.android.workouttracker.databinding.FragmentHomeBinding
 import hu.bme.aut.android.workouttracker.model.NewExerciseDialogFragment
@@ -20,7 +21,8 @@ import kotlin.concurrent.thread
 
 class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener,
     SearchDayDialogFragment.SearchDayDialogListener,
-        NewExerciseDialogFragment.NewExerciseDialogListener
+        NewExerciseDialogFragment.NewExerciseDialogListener,
+        Copy.CopyFragmentListener
 {
     private lateinit var database: FinishedExercisesDatabase
     private lateinit var adapter: FinishedExerciseAdapter
@@ -121,6 +123,21 @@ class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener,
             Log.d("Home", "onExerciseCreated")
             requireActivity().runOnUiThread {
                 adapter.addExercise(newExercise)
+            }
+        }
+    }
+
+    override fun onCopyExercises(from: Calendar, to: Calendar) {
+        thread{
+            val exercises = database.FinishedExerciseDao().getExercisesByDate(startOfDay(from), endOfDay(from))
+            if(!exercises.isEmpty()){
+                for(exercise in exercises){
+                    exercise.date.set(to.get(Calendar.YEAR), to.get(Calendar.MONTH), to.get(Calendar.DAY_OF_MONTH))
+                    database.FinishedExerciseDao().insert(exercise)
+                }
+            }
+            requireActivity().runOnUiThread {
+                adapter.update(exercises)
             }
         }
     }
