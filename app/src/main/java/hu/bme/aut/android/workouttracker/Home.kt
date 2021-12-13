@@ -18,20 +18,18 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.thread
 
-class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener
-    //SearchDayDialogFragment.SearchDayDialogListener
+class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener,
+    SearchDayDialogFragment.SearchDayDialogListener,
+        NewExerciseDialogFragment.NewExerciseDialogListener
 {
     private lateinit var database: FinishedExercisesDatabase
     private lateinit var adapter: FinishedExerciseAdapter
     private lateinit var binding: FragmentHomeBinding
-    //private var initDate = Calendar.getInstance()
+    private var initDate = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         database = FinishedExercisesDatabase.getDatabase(requireContext().applicationContext)
-       // listener =  context as? SearchHomeListener
-            ?: throw RuntimeException("Activity must implement the SearchHomeListener interface!")
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,20 +37,20 @@ class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener
 
         Log.d("HomeKt","onCreateView")
         binding.fab.setOnClickListener{
-            NewExerciseDialogFragment().show(
+            NewExerciseDialogFragment(this).show(
                 requireActivity().supportFragmentManager,
                 NewExerciseDialogFragment.TAG
             )
         }
 
         binding.btDate.setOnClickListener{
-            SearchDayDialogFragment().show(
+            SearchDayDialogFragment(this).show(
                 requireActivity().supportFragmentManager,
                 SearchDayDialogFragment.TAG
             )
         }
         initRecyclerView()
-        loadItemsInBackground()
+        loadItemsInBackground(initDate)
         return binding.root
     }
 
@@ -62,14 +60,15 @@ class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener
         binding.rvHome.adapter = adapter
     }
 
-    fun loadItemsInBackground() {
+    fun loadItemsInBackground(day: Calendar) {
         thread {
-            val items = database.FinishedExerciseDao().getExercisesByDate(Calendar.getInstance().startOfDay(), Calendar.getInstance().endOfDay())
+            Log.d("HomeloadItemsBackground",day.toFormattedDate() )
+            val items = database.FinishedExerciseDao().getExercisesByDate(startOfDay(day), endOfDay(day))
             requireActivity().runOnUiThread {
                 if(!items.isEmpty())
                     binding.btDate.text =  items[0].date.toFormattedDate()
                 else
-                    binding.btDate.text = Calendar.getInstance().toFormattedDate()
+                    binding.btDate.text = day.toFormattedDate()
                 adapter.update(items)
             }
         }
@@ -88,7 +87,6 @@ class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener
     }
 
 
-
     private fun Calendar.toFormattedDate(): String{
         return when{
             DateUtils.isToday(this.timeInMillis + DateUtils.DAY_IN_MILLIS) -> "YESTERDAY"
@@ -99,19 +97,33 @@ class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener
 
     }
 
-    private fun Calendar.startOfDay(): Calendar{
-        this.set(Calendar.HOUR,0)
-        this.set(Calendar.MINUTE,0)
-        return this
+    private fun startOfDay(day: Calendar): Calendar{
+        val ret = Calendar.getInstance()
+        ret.set(day.get(Calendar.YEAR), day.get(Calendar.MONTH), day.get(Calendar.DAY_OF_MONTH),0,0,0)
+        return ret
     }
 
-    private fun Calendar.endOfDay(): Calendar{
-        this.set(Calendar.HOUR,23)
-        this.set(Calendar.MINUTE,59)
-        return this
+    private fun endOfDay(day: Calendar): Calendar{
+        val ret = Calendar.getInstance()
+        ret.set(day.get(Calendar.YEAR), day.get(Calendar.MONTH), day.get(Calendar.DAY_OF_MONTH),23,59,59)
+        return ret
     }
 
+    override fun onSearchDay(day: Calendar) {
+        initDate = day
+        loadItemsInBackground(day)
+    }
 
+    override fun onExerciseCreated(newExercise: FinishedExercise) {
+        thread {
+            newExercise.date = initDate
+            database.FinishedExerciseDao().insert(newExercise)
+            Log.d("Home", "onExerciseCreated")
+            requireActivity().runOnUiThread {
+                adapter.addExercise(newExercise)
+            }
+        }
+    }
 
 
 }

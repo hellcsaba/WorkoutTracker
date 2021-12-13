@@ -10,19 +10,13 @@ import androidx.fragment.app.DialogFragment
 import hu.bme.aut.android.workouttracker.databinding.SearchDayDialogFragmentBinding
 import java.util.*
 
-class SearchDayDialogFragment: DialogFragment() {
+class SearchDayDialogFragment(private var listener: SearchDayDialogListener): DialogFragment() {
     interface SearchDayDialogListener{
         fun onSearchDay(day: Calendar)
     }
 
-    private lateinit var listener: SearchDayDialogListener
     private lateinit var binding: SearchDayDialogFragmentBinding
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        listener = context as? SearchDayDialogListener
-            ?: throw RuntimeException("Activity must implement the NewShoppingItemDialogListener interface!")
-    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = SearchDayDialogFragmentBinding.inflate(LayoutInflater.from(context))

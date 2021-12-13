@@ -12,20 +12,12 @@ import hu.bme.aut.android.workouttracker.data.FinishedExercise
 import hu.bme.aut.android.workouttracker.databinding.NewExerciseDialogFragmentBinding
 import java.util.*
 
-class NewExerciseDialogFragment: DialogFragment() {
+class NewExerciseDialogFragment(private val listener: NewExerciseDialogListener): DialogFragment() {
     interface NewExerciseDialogListener {
         fun onExerciseCreated(newExercise: FinishedExercise)
     }
 
-    private lateinit var listener: NewExerciseDialogListener
-
     private lateinit var binding: NewExerciseDialogFragmentBinding
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        listener = context as? NewExerciseDialogListener
-            ?: throw RuntimeException("Activity must implement the NewShoppingItemDialogListener interface!")
-    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = NewExerciseDialogFragmentBinding.inflate(LayoutInflater.from(context))
