@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"/>
+        android:text="@string/new_exercise_tvname"/>
 
     <AutoCompleteTextView
         android:id="@+id/autotvName"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="Reps" />
+        android:text="@string/new_exercise_tvreps" />
 
     <EditText
         android:id="@+id/etReps"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="Weight" />
+        android:text="@string/new_exercise_tvweight" />
 
     <EditText
         android:id="@+id/etWeight"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="Category"/>
+        android:text="@string/new_exercise_tvCategory"/>
 
     <Spinner
         android:id="@+id/spCategory"

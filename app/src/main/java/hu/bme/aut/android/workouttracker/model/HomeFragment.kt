@@ -1,4 +1,4 @@
-package hu.bme.aut.android.workouttracker
+package hu.bme.aut.android.workouttracker.model
 
 import android.os.Bundle
 import android.text.format.DateUtils
@@ -10,19 +10,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.workouttracker.adapter.FinishedExerciseAdapter
 import hu.bme.aut.android.workouttracker.data.FinishedExercise
-import hu.bme.aut.android.workouttracker.data.FinishedExerciseDao
 import hu.bme.aut.android.workouttracker.data.FinishedExercisesDatabase
 import hu.bme.aut.android.workouttracker.databinding.FragmentHomeBinding
+import hu.bme.aut.android.workouttracker.model.CopyFragment
 import hu.bme.aut.android.workouttracker.model.NewExerciseDialogFragment
 import hu.bme.aut.android.workouttracker.model.SearchDayDialogFragment
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.thread
 
-class Home : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener,
+class HomeFragment : Fragment(), FinishedExerciseAdapter.DeleteExerciseClickListener,
     SearchDayDialogFragment.SearchDayDialogListener,
         NewExerciseDialogFragment.NewExerciseDialogListener,
-        Copy.CopyFragmentListener
+        CopyFragment.CopyFragmentListener
 {
     private lateinit var database: FinishedExercisesDatabase
     private lateinit var adapter: FinishedExerciseAdapter

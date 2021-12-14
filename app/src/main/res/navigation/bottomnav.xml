@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="hu.bme.aut.android.workouttracker.Home"
+        android:name="hu.bme.aut.android.workouttracker.model.HomeFragment"
         android:label="Diary"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/copy"
-        android:name="hu.bme.aut.android.workouttracker.Copy"
+        android:name="hu.bme.aut.android.workouttracker.model.CopyFragment"
         android:label="Copy"
         tools:layout="@layout/fragment_copy" />
     <fragment
         android:id="@+id/create_exercise"
-        android:name="hu.bme.aut.android.workouttracker.CreateExerciseFragment"
+        android:name="hu.bme.aut.android.workouttracker.model.CreateExerciseFragment"
         android:label="Create new exercise" />
 </navigation>

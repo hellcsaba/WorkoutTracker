@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">WorkoutTracker</string>
+    <string name="new_exercise_tvname">Name</string>
+    <string name="new_exercise_tvreps">Reps</string>
+    <string name="new_exercise_tvweight">Weight</string>
+    <string name="new_exercise_tvCategory">Category</string>
+    <string name="copy_the_exercises_of_a_day">Copy the exercises of a day</string>
+    <string name="source_day">Source day</string>
+    <string name="destination_day">Destination day</string>
+    <string name="copy">Copy</string>
+    <string name="create_exercise_tvName">Name</string>
+    <string name="create_exercise_tvCategory">Category</string>
+    <string name="create_exercise_btAdd">Add</string>
+    <string name="splash_screen_tvLogo">Workout Tracker</string>
 
     <string-array name="category_items">
         <item>Abs</item>

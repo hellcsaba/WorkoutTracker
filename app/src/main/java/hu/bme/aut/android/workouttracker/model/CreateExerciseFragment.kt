@@ -1,4 +1,4 @@
-package hu.bme.aut.android.workouttracker
+package hu.bme.aut.android.workouttracker.model
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import hu.bme.aut.android.workouttracker.R
 import hu.bme.aut.android.workouttracker.adapter.ExerciseAdapter
 import hu.bme.aut.android.workouttracker.data.Exercise
 import hu.bme.aut.android.workouttracker.data.ExercisesDatabase

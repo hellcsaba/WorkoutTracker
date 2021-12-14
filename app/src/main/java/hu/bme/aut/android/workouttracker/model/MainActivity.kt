@@ -1,4 +1,4 @@
-package hu.bme.aut.android.workouttracker
+package hu.bme.aut.android.workouttracker.model
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-
+import hu.bme.aut.android.workouttracker.R
 
 
 class MainActivity : AppCompatActivity()//, FinishedExerciseAdapter.DeleteExerciseClickListener
@@ -17,7 +17,11 @@ class MainActivity : AppCompatActivity()//, FinishedExerciseAdapter.DeleteExerci
         setContentView(R.layout.activity_main)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = Navigation.findNavController(this, R.id.fragmentContainerView2)
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.home2, R.id.create_exercise, R.id.copy))
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.home2,
+            R.id.create_exercise,
+            R.id.copy
+        ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
     }

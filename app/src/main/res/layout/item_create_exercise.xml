@@ -27,7 +27,7 @@
         android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical|left">
+        android:layout_gravity="center_vertical|start">
 
         <TextView
             android:id="@+id/tvName"
@@ -47,14 +47,14 @@
         android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical|right">
+        android:layout_gravity="center_vertical|end">
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:gravity="right"
+            android:gravity="end"
             tools:text="Category" />
 
     </LinearLayout>

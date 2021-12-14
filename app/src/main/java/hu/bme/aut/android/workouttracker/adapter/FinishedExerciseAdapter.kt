@@ -21,6 +21,7 @@ class FinishedExerciseAdapter(private val listener: DeleteExerciseClickListener)
         holder.binding.tvName.text = exercise.name.toString()
         holder.binding.tvReps.text = "Reps: ${exercise.reps.toString()}"
         holder.binding.tvWeight.text = "Weight: ${exercise.weight.toString()}"
+        holder.binding.tvCategory.text = exercise.category.toString()
         holder.binding.ivIcon.setImageResource(getImageResource(exercise.category))
         holder.binding.ibRemove.setOnClickListener {
             listener.onExerciseDeleted(exercise)

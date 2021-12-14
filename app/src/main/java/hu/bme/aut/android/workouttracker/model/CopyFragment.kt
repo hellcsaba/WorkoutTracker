@@ -1,4 +1,4 @@
-package hu.bme.aut.android.workouttracker
+package hu.bme.aut.android.workouttracker.model
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,7 +15,7 @@ import hu.bme.aut.android.workouttracker.databinding.FragmentHomeBinding
 import java.util.*
 import kotlin.concurrent.thread
 
-class Copy : Fragment()
+class CopyFragment : Fragment()
 {
     interface CopyFragmentListener{
         fun onCopyExercises(from: Calendar, to: Calendar)
