@@ -67,10 +67,11 @@ class CreateExerciseFragment : Fragment(), ExerciseAdapter.ExerciseClickListener
                 category = Exercise.Category.getByOrdinal(binding.spCategory.selectedItemPosition)
                     ?: Exercise.Category.OTHER
             )
+
             thread {
                 val ex = database.ExercisesDao().getExerciseByName(binding.etName.text.toString())
                 if (ex == null) {
-                    database.ExercisesDao().insert(newItem)
+                    newItem.id = database.ExercisesDao().insert(newItem)
                     Log.d("CreateExerciseFragment", "ExerciseCreated")
                     requireActivity().runOnUiThread {
                         adapter.addItem(newItem)
