@@ -9,7 +9,7 @@ data class Exercise(
     @ColumnInfo(name = "category") var category: Category,
 ){
     enum class Category {
-        ABS, BACK, BICEP, CHEST, LEG, SHOULDER, TRICEPS;
+        ABS, BACK, BICEP, CHEST, LEG, SHOULDER, TRICEPS, OTHER;
         companion object {
             @JvmStatic
             @TypeConverter

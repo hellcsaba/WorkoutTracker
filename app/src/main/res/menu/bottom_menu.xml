@@ -6,7 +6,7 @@
         android:title="Home"
         android:icon  = "@drawable/ic_home"/>
     <item
-        android:id="@+id/add_exercise"
+        android:id="@+id/create_exercise"
         android:title="Add"
         android:icon = "@drawable/ic_add"/>
     <item

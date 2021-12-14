@@ -16,13 +16,7 @@
         android:label="Copy"
         tools:layout="@layout/fragment_copy" />
     <fragment
-        android:id="@+id/add_exercise"
-        android:name="hu.bme.aut.android.workouttracker.add_exercise"
-        android:label="Add finished exercise"
-        tools:layout="@layout/fragment_add_exercise" />
-    <fragment
-        android:id="@+id/search_day"
-        android:name="hu.bme.aut.android.workouttracker.create_exercise"
-        android:label="Search"
-        tools:layout="@layout/search_day_dialog_fragment" />
+        android:id="@+id/create_exercise"
+        android:name="hu.bme.aut.android.workouttracker.CreateExerciseFragment"
+        android:label="Create new exercise" />
 </navigation>

@@ -11,12 +11,15 @@
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/activity_splash_screen.xml" value="0.18" />
+        <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/create_exercise_fragment.xml" value="0.2644927536231884" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/fragment_add_exercise.xml" value="0.25" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/fragment_copy.xml" value="0.36666666666666664" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/fragment_search.xml" value="0.26927083333333335" />
+        <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/item_create_exercise.xml" value="0.2644927536231884" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/item_exercise_list.xml" value="0.33" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/new_exercise_dialog_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/search_day_dialog_fragment.xml" value="0.22826086956521738" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/layout/splash_background.xml" value="0.36666666666666664" />
         <entry key="..\:/BME/BME_5/MobWeb/HF/WorkoutTracker/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
       </map>

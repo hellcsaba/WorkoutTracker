@@ -15,4 +15,13 @@ interface ExerciseDao {
 
     @Delete
     fun deleteItem(exercise: Exercise)
+
+    @Query("SELECT category FROM exercise WHERE exercise.name == :name")
+    fun getCategoryByName(name: String): Exercise.Category
+
+    @Query("SELECT * FROM exercise WHERE exercise.name == :name")
+    fun getExerciseByName(name: String): Exercise?
+
+    @Query("SELECT exercise.name FROM exercise")
+    fun getExerciseNames(): List<String>
 }
